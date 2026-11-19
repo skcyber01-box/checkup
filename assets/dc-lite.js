@@ -82,12 +82,33 @@
         a.setAttribute('href', a.getAttribute('href').replace('.dc.html', '.html') + (thumb ? '?thumb' : bareQ === 'frame' ? '?view=frame' : ''));
       });
       var m2 = root.querySelector('main'); if (m2) m2.scrollTop = scroller;
+      fit();
     }
+    window.__fit = fit;
     render();
     layout();
     window.addEventListener('resize', layout);
     window.addEventListener('orientationchange', function () { setTimeout(layout, 300); });
     if (window.visualViewport) window.visualViewport.addEventListener('resize', layout);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit);
+    window.addEventListener('load', fit);
+  }
+
+  // ย่อเนื้อหาให้พอดีหน้าจอเดียว (รองรับเครื่องที่ตั้งตัวอักษรใหญ่) ย่อได้ต่ำสุด 70%
+  function fit() {
+    if (!document.body.classList.contains('bare')) { clear(); return; }
+    var main = document.querySelector('x-dc main');
+    if (!main) return;
+    var els = [document.querySelector('x-dc header'), document.querySelector('x-dc footer')].concat(Array.prototype.slice.call(main.children)).filter(Boolean);
+    els.forEach(function (e) { e.style.zoom = ''; });
+    var z = 1;
+    while (z > 0.7 && main.scrollHeight > main.clientHeight + 1) {
+      z = Math.round((z - 0.03) * 100) / 100;
+      els.forEach(function (e) { e.style.zoom = z; });
+    }
+  }
+  function clear() {
+    document.querySelectorAll('x-dc header, x-dc footer, x-dc main > *').forEach(function (e) { e.style.zoom = ''; });
   }
 
   function layout() {
@@ -103,6 +124,7 @@
       // ใช้ความสูงที่มองเห็นจริง (กันแถบเบราว์เซอร์/แถบนำทาง Android บังปุ่มด้านล่าง)
       var vv = window.visualViewport;
       document.documentElement.style.setProperty('--app-h', Math.round(vv ? vv.height : window.innerHeight) + 'px');
+      fit();
       return;
     }
     var vw = window.innerWidth, vh = window.innerHeight;
