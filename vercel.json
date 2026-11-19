@@ -1,7 +1,9 @@
 {
   "cleanUrls": false,
   "trailingSlash": false,
+  "redirects": [{ "source": "/", "destination": "/screens/Main.html", "permanent": false }],
   "headers": [
-    { "source": "/(.*)", "headers": [{ "key": "X-Content-Type-Options", "value": "nosniff" }] }
+    { "source": "/(.*)", "headers": [{ "key": "X-Content-Type-Options", "value": "nosniff" }] },
+    { "source": "/manifest.webmanifest", "headers": [{ "key": "Content-Type", "value": "application/manifest+json" }] }
   ]
 }

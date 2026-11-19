@@ -79,7 +79,7 @@
       root.innerHTML = template;
       expand(root, c.renderVals());
       root.querySelectorAll('a[href$=".dc.html"]').forEach(function (a) {
-        a.setAttribute('href', a.getAttribute('href').replace('.dc.html', '.html') + (thumb ? '?thumb' : ''));
+        a.setAttribute('href', a.getAttribute('href').replace('.dc.html', '.html') + (thumb ? '?thumb' : bareQ === 'frame' ? '?view=frame' : ''));
       });
       var m2 = root.querySelector('main'); if (m2) m2.scrollTop = scroller;
     }
@@ -90,8 +90,8 @@
 
   function layout() {
     var b = document.body;
-    // ค่าเริ่มต้น: แสดงในกรอบ iPhone ทุกอุปกรณ์ (?view=app = เต็มจอแบบแอป)
-    var bare = !thumb && bareQ === 'app';
+    // ค่าเริ่มต้น: Web App เต็มจอ (?view=frame = ดูในกรอบ iPhone สำหรับนำเสนอ)
+    var bare = !thumb && bareQ !== 'frame';
     b.classList.toggle('bare', bare);
     b.classList.toggle('thumb', thumb);
     var stage = document.querySelector('.stage');
@@ -113,14 +113,14 @@
   }
 
   function nav() {
-    if (thumb) return;
+    if (thumb || bareQ !== 'frame') return;
     var cur = (location.pathname.split('/').pop() || '').replace('.html', '');
     var i = STEPS.findIndex(function (s) { return s[0] === cur; });
     var el = document.createElement('nav');
     el.className = 'stepnav'; el.setAttribute('aria-label', 'ขั้นตอน');
-    var h = '<a class="home" href="../index.html">ภาพรวม</a><div class="dots">';
+    var h = '<a class="home" href="../overview.html">ภาพรวม</a><div class="dots">';
     STEPS.forEach(function (s, k) {
-      h += '<a href="' + s[0] + '.html" title="' + s[1] + '"' + (k === i ? ' aria-current="page"' : '') + '>' + (k + 1) + '</a>';
+      h += '<a href="' + s[0] + '.html?view=frame" title="' + s[1] + '"' + (k === i ? ' aria-current="page"' : '') + '>' + (k + 1) + '</a>';
     });
     h += '</div><span class="lbl">' + (i > -1 ? (i + 1) + ' · ' + STEPS[i][1] : '') + '</span>';
     el.innerHTML = h;

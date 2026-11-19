@@ -33,15 +33,23 @@ body { display: flex; flex-direction: column; align-items: center; justify-conte
 body.thumb { padding: 0; display: block; background: transparent; min-height: 0; overflow: hidden; }
 body.thumb .fit { margin: 0; }
 
-/* มือถือ: แสดงเต็มจอเหมือนแอปจริง ไม่มีกรอบเครื่อง */
-body.bare { padding: 0; display: block; background: #f4f7fb; }
+/* Web App: เต็มจอบนมือถือ · คอลัมน์แอปตรงกลางบนแท็บเล็ตและคอมพิวเตอร์ */
+body.bare { padding: 0; display: block; background: #f4f7fb; overflow: hidden; }
 body.bare .stepnav { display: none; }
 body.bare .fit, body.bare .stage { position: static; width: auto !important; height: auto !important; transform: none !important; }
-body.bare x-dc > div { width: 100vw !important; height: 100vh !important; height: 100dvh !important; padding: 0 !important; border-radius: 0 !important; background: transparent !important; box-shadow: none !important; }
-body.bare x-dc > div > div { width: 100% !important; height: 100% !important; border-radius: 0 !important; }
+body.bare x-dc > div { width: 100% !important; height: 100vh !important; height: 100dvh !important; padding: 0 !important; border-radius: 0 !important; background: transparent !important; box-shadow: none !important; }
+body.bare x-dc > div > div { width: 100% !important; height: 100% !important; border-radius: 0 !important; margin: 0 auto; }
 body.bare x-dc > div > div > [aria-hidden="true"]:nth-child(1),
 body.bare x-dc > div > div > [aria-hidden="true"]:nth-child(2),
 body.bare x-dc > div > div > [aria-hidden="true"]:last-child { display: none !important; }
-body.bare header { padding-top: max(8px, env(safe-area-inset-top, 0px)) !important; }
+body.bare header { padding-top: max(10px, env(safe-area-inset-top, 0px)) !important; padding-left: max(16px, env(safe-area-inset-left, 0px)) !important; padding-right: max(16px, env(safe-area-inset-right, 0px)) !important; }
 body.bare footer { padding-bottom: max(16px, env(safe-area-inset-bottom, 0px)) !important; }
+@media (min-width: 641px) {
+  body.bare { background: #dfe6ef; }
+  body.bare x-dc > div > div { max-width: 600px !important; box-shadow: 0 0 0 1px #cfdbea, 0 10px 40px rgba(15,32,56,.10); }
+}
+@media (min-width: 641px) and (min-height: 760px) {
+  body.bare x-dc > div { padding: 24px 0 !important; box-sizing: border-box !important; }
+  body.bare x-dc > div > div { border-radius: 28px !important; }
+}
 x-dc { display: block; }

@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ตรวจสุขภาพปีใหม่ 2570 · Dr.Assist</title>
+<meta name="description" content="ต้นแบบหน้าจอมือถือ 7 ช่วงประสบการณ์ ตรวจสุขภาพทุกกลุ่มวัย ลงทะเบียนผ่านหมอพร้อม รับบริการด้วย Dr.Assist ออกแบบสำหรับผู้สูงอายุ">
+<link rel="icon" href="assets/dr-assist-logo.webp">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anuphan:wght@600;700&family=IBM+Plex+Sans+Thai:wght@400;500;600;700&display=swap">
+<style>
+:root { --bg: #f4f7fb; --card: #ffffff; --ink: #0f2038; --sub: #3a4b62; --line: #cfdbea; --blue: #1a56c4; --green: #0f6e44; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: 'IBM Plex Sans Thai', Tahoma, sans-serif; line-height: 1.6; }
+.wrap { max-width: 1240px; margin: 0 auto; padding: 40px max(16px, env(safe-area-inset-right, 0px)) 64px max(16px, env(safe-area-inset-left, 0px)); display: grid; gap: 32px; }
+h1, h2 { font-family: Anuphan, 'IBM Plex Sans Thai', sans-serif; line-height: 1.25; margin: 0; text-wrap: balance; }
+h1 { font-size: clamp(30px, 5vw, 46px); }
+h1 em { font-style: normal; color: var(--green); }
+.logo { display: block; height: 96px; width: auto; margin-bottom: 16px; }
+.eyebrow { font-size: 14px; font-weight: 700; letter-spacing: .05em; color: var(--blue); }
+.lead { color: var(--sub); max-width: 64ch; margin: 8px 0 0; font-size: 17px; }
+.cta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+.btn { display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: 0 22px; border-radius: 16px; font-weight: 700; font-size: 17px; text-decoration: none; }
+.btn.pri { background: var(--green); color: #fff; }
+.btn.sec { border: 2px solid var(--line); color: var(--ink); background: var(--card); }
+.btn:focus-visible, .shot:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 230px), 1fr)); gap: 20px; }
+.shot { display: grid; gap: 10px; text-decoration: none; color: inherit; }
+.frame { position: relative; width: 100%; aspect-ratio: 426 / 898; border-radius: 22px; overflow: hidden; background: #dfe6ef; }
+.frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; pointer-events: none; }
+.cap { display: flex; gap: 10px; align-items: baseline; }
+.cap b { flex: none; width: 30px; height: 30px; border-radius: 15px; background: var(--blue); color: #fff; display: inline-flex; align-items: center; justify-content: center; font-size: 15px; }
+.cap span { font-weight: 600; font-size: 17px; }
+.cap small { display: block; color: var(--sub); font-size: 14.5px; font-weight: 400; }
+.note { color: var(--sub); font-size: 14.5px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <img class="logo" src="assets/dr-assist-logo.webp" alt="Dr.Assist" width="113" height="96">
+    <span class="eyebrow">ต้นแบบ · ของขวัญปีใหม่ 2570</span>
+    <h1>ตรวจสุขภาพทุกกลุ่มวัย <em>ผ่านหมอพร้อม</em> รับบริการด้วย Dr.Assist</h1>
+    <p class="lead">หน้าจอมือถือ 7 ช่วงประสบการณ์ ออกแบบสำหรับผู้สูงอายุ ตัวอักษรใหญ่ ปุ่มใหญ่ มีปุ่มฟังเสียงและให้ลูกหลานช่วยได้ทุกขั้น กดลองใช้ได้จริงตั้งแต่ขั้นแรกจนจบ</p>
+    <div class="cta">
+      <a class="btn pri" href="screens/Main.html">เปิด Web App</a>
+      <a class="btn sec" href="screens/Main.html?view=frame">ดูในกรอบ iPhone (นำเสนอ)</a>
+    </div>
+  </header>
+
+  <section aria-label="7 ช่วงประสบการณ์" class="grid" id="grid"></section>
+
+  <p class="note">ข้อมูลผู้ป่วย ค่าผลตรวจ โรงพยาบาล และ QR เป็นข้อมูลตัวอย่างในต้นแบบ ใช้งานจริงไม่ได้ · Web App แสดงเต็มจอบนมือถือ และเป็นคอลัมน์ตรงกลางบนแท็บเล็ตและคอมพิวเตอร์</p>
+</div>
+<script>
+(function () {
+  var S = [
+    ['Main', 'เห็นแคมเปญ', 'ข้อความใน LINE หมอพร้อม'],
+    ['Register', 'ลงทะเบียน', 'ยืนยันตัวตน แพ็กเกจตามอายุ'],
+    ['Hospital', 'เลือกที่ตรวจและวัน', 'ที่ประจำ วันว่างตามโควตา'],
+    ['Confirm', 'นัดตรวจของฉัน', 'ยืนยันแล้ว เตรียมตัว เตือนล่วงหน้า'],
+    ['Checkin', 'วันตรวจ แสดง QR', 'QR เดียวทุกจุด คิวปัจจุบัน'],
+    ['Results', 'ผลตรวจสุขภาพ', 'บอกเรื่องที่ต้องดูแลก่อน'],
+    ['Followup', 'ดูแลต่อ', 'หมอโทรวิดีโอ อสม. เยี่ยมบ้าน']
+  ];
+  document.getElementById('grid').innerHTML = S.map(function (s, i) {
+    return '<a class="shot" href="screens/' + s[0] + '.html?view=frame"><div class="frame"><iframe src="screens/' + s[0] + '.html?thumb" title="ตัวอย่างหน้าจอ ' + s[1] + '" loading="lazy" tabindex="-1" aria-hidden="true"></iframe></div>' +
+      '<div class="cap"><b>' + (i + 1) + '</b><span>' + s[1] + '<small>' + s[2] + '</small></span></div></a>';
+  }).join('');
+})();
+</script>
+</body>
+</html>
