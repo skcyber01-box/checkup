@@ -63,7 +63,7 @@ a{color:#1a56c4}a:hover{color:#123f96}
       <section style="background: #ffffff; border: 1px solid #cfdbea; border-radius: 18px; padding: 14px 16px; display: flex; flex-direction: column; gap: 4px">
         <span style="font-size: 16px; color: #3a4b62">วันที่ขอตรวจ</span>
         <strong style="font-size: 21px">อังคาร 12 ม.ค. 2570</strong>
-        <span style="font-size: 17px; color: #26384f">รพ.สต.บ้านหนองบัว</span>
+        <span style="font-size: 17px; color: #26384f">รพ.สต.บ้านหนองบัว · แพ็กเกจผู้สูงอายุ 6 รายการ</span>
       </section>
       <button type="button" onClick="{{confirm}}" style="min-height: 56px; border-radius: 16px; border: 2px dashed #8a9bb0; background: transparent; color: #3a4b62; font: inherit; font-size: 17px; font-weight: 600; cursor: pointer">ต้นแบบ: จำลองว่าโรงพยาบาลยืนยันแล้ว</button>
     </sc-if>
@@ -77,6 +77,7 @@ a{color:#1a56c4}a:hover{color:#123f96}
           <span style="align-self: flex-start; font-size: 15px; font-weight: 700; background: #ffffff; color: #0f6e44; padding: 2px 10px; border-radius: 99px">ได้รับ QR แล้ว</span>
           <strong style="font-family: Anuphan, 'IBM Plex Sans Thai', sans-serif; font-size: 23px; line-height: 1.3">อังคาร 12 ม.ค. 2570</strong>
           <span style="font-size: 16px">รพ.สต.บ้านหนองบัว · ช่วงเช้า</span>
+          <span style="font-size: 16px; font-weight: 600">แพ็กเกจผู้สูงอายุ (อายุ 61 ปี) 6 รายการ</span>
         </div>
       </section>
       <section style="background: #fbefd9; border-radius: 20px; padding: 14px 16px; display: flex; flex-direction: column; gap: 10px">
@@ -100,7 +101,10 @@ a{color:#1a56c4}a:hover{color:#123f96}
       <a href="Main.dc.html" style="height: 64px; border-radius: 18px; border: 2px solid #b4c6dd; color: #0f2038; font-size: 20px; font-weight: 600; display: flex; align-items: center; justify-content: center; text-decoration: none; box-sizing: border-box">กลับหน้าแรก รอแจ้งเตือน</a>
     </sc-if>
     <sc-if value="{{done}}" hint-placeholder-val="{{false}}">
-      <a href="Checkin.dc.html" style="height: 64px; border-radius: 18px; background: #1a56c4; color: #ffffff; font-size: 21px; font-weight: 700; display: flex; align-items: center; justify-content: center; text-decoration: none">เปิด QR วันตรวจ</a>
+      <div style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: 10px">
+        <a href="Hospital.dc.html" style="height: 64px; border-radius: 18px; border: 2px solid #b4c6dd; color: #0f2038; font-size: 19px; font-weight: 600; display: flex; align-items: center; justify-content: center; text-decoration: none; box-sizing: border-box">เปลี่ยนวัน</a>
+        <a href="Checkin.dc.html" style="height: 64px; border-radius: 18px; background: #1a56c4; color: #ffffff; font-size: 20px; font-weight: 700; display: flex; align-items: center; justify-content: center; text-decoration: none">เปิด QR วันตรวจ</a>
+      </div>
     </sc-if>
   </footer>
   <div aria-hidden="true" style="position: absolute; bottom: 8px; left: 131px; width: 140px; height: 5px; border-radius: 3px; background: #0f2038"></div>
