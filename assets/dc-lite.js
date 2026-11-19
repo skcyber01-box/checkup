@@ -1,8 +1,8 @@
 /* dc-lite: ตัวแสดงผลหน้าจอต้นแบบ (template + state) ขนาดเล็ก ไม่ต้องพึ่งไลบรารี */
 (function () {
   var STEPS = [
-    ['Main', 'เห็นแคมเปญ'], ['Register', 'ลงทะเบียน'], ['Hospital', 'เลือกที่ตรวจ'],
-    ['Confirm', 'ยืนยันนัด'], ['Checkin', 'วันตรวจ QR'], ['Results', 'ผลตรวจ'], ['Followup', 'ดูแลต่อ']
+    ['Main', 'เห็นแคมเปญ'], ['Register', 'ลงทะเบียน'], ['Hospital', 'เลือกวันตรวจ'],
+    ['Confirm', 'รอรับ QR'], ['Checkin', 'วันตรวจ QR'], ['Results', 'ผลตรวจ'], ['Followup', 'ดูแลต่อ']
   ];
   var params = new URLSearchParams(location.search);
   var thumb = params.has('thumb');

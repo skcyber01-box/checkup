@@ -2,7 +2,7 @@
 <html lang="th">
 <head>
 <meta charset="utf-8">
-<title>Dr.Assist · 4 นัดตรวจของฉัน</title>
+<title>Dr.Assist · 4 รอรับ QR ยืนยัน</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#ffffff">
 <link rel="icon" href="../assets/dr-assist-logo.webp">
@@ -47,37 +47,61 @@ a{color:#1a56c4}a:hover{color:#123f96}
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0f2038" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9z"></path><path d="M16.5 8.5a5 5 0 0 1 0 7"></path></svg>ฟัง
       </button>
     </div>
-    <strong style="font-family: Anuphan, 'IBM Plex Sans Thai', sans-serif; font-size: 25px; line-height: 1.3">นัดตรวจของฉัน</strong>
+    <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 8px">
+      <strong style="font-family: Anuphan, 'IBM Plex Sans Thai', sans-serif; font-size: 25px; line-height: 1.3">นัดตรวจของฉัน</strong>
+      <span style="flex: none; font-size: 16px; font-weight: 700; color: #0f6e44">ขั้น 3/3</span>
+    </div>
   </header>
 
   <main style="flex: 1; overflow-y: auto; padding: 14px 16px 16px; display: flex; flex-direction: column; gap: 12px">
-    <section style="background: #0f6e44; color: #ffffff; border-radius: 22px; padding: 16px 18px; display: flex; flex-direction: column; gap: 6px">
-      <span style="align-self: flex-start; display: flex; align-items: center; gap: 6px; font-size: 16px; font-weight: 700; background: #ffffff; color: #0f6e44; padding: 3px 12px; border-radius: 99px">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0f6e44" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg>ยืนยันแล้ว
-      </span>
-      <strong style="font-family: Anuphan, 'IBM Plex Sans Thai', sans-serif; font-size: 28px; line-height: 1.3">อังคาร 12 ม.ค. 2570</strong>
-      <span style="font-size: 20px; font-weight: 600">07:30 น. · รพ.สต.บ้านหนองบัว</span>
-    </section>
+    <sc-if value="{{pending}}" hint-placeholder-val="{{true}}">
+      <section style="background: #ffffff; border: 2px solid #b4c6dd; border-radius: 22px; padding: 20px 18px; display: flex; flex-direction: column; align-items: center; gap: 10px; text-align: center">
+        <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#1a56c4" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3h10M7 21h10"></path><path d="M8 3c0 5 8 5 8 9s-8 4-8 9"></path><path d="M16 3c0 5-8 5-8 9s8 4 8 9"></path></svg>
+        <strong style="font-family: Anuphan, 'IBM Plex Sans Thai', sans-serif; font-size: 25px; line-height: 1.3">ส่งคำขอแล้ว<br>รอโรงพยาบาลยืนยัน</strong>
+        <span style="font-size: 18px; line-height: 1.5; color: #26384f">เมื่อยืนยันแล้ว จะส่ง <strong>QR นัดตรวจ</strong> ไปที่ LINE หมอพร้อม ภายใน 24 ชั่วโมง</span>
+      </section>
+      <section style="background: #ffffff; border: 1px solid #cfdbea; border-radius: 18px; padding: 14px 16px; display: flex; flex-direction: column; gap: 4px">
+        <span style="font-size: 16px; color: #3a4b62">วันที่ขอตรวจ</span>
+        <strong style="font-size: 21px">อังคาร 12 ม.ค. 2570</strong>
+        <span style="font-size: 17px; color: #26384f">รพ.สต.บ้านหนองบัว</span>
+      </section>
+      <button type="button" onClick="{{confirm}}" style="min-height: 56px; border-radius: 16px; border: 2px dashed #8a9bb0; background: transparent; color: #3a4b62; font: inherit; font-size: 17px; font-weight: 600; cursor: pointer">ต้นแบบ: จำลองว่าโรงพยาบาลยืนยันแล้ว</button>
+    </sc-if>
 
-    <section style="background: #fbefd9; border-radius: 20px; padding: 14px 16px; display: flex; flex-direction: column; gap: 10px">
-      <strong style="font-size: 20px; color: #5c3300">ก่อนไปตรวจ</strong>
-      <div style="display: flex; gap: 12px; align-items: center; font-size: 19px; line-height: 1.4"><strong style="flex: none; width: 32px; height: 32px; border-radius: 16px; background: #8a4b00; color: #ffffff; font-size: 17px; display: flex; align-items: center; justify-content: center">1</strong><span><strong>งดอาหารหลัง 4 ทุ่ม</strong> ดื่มน้ำเปล่าได้</span></div>
-      <div style="display: flex; gap: 12px; align-items: center; font-size: 19px; line-height: 1.4"><strong style="flex: none; width: 32px; height: 32px; border-radius: 16px; background: #8a4b00; color: #ffffff; font-size: 17px; display: flex; align-items: center; justify-content: center">2</strong><span>นำ<strong>บัตรประชาชน</strong>ไปด้วย</span></div>
-      <div style="display: flex; gap: 12px; align-items: center; font-size: 19px; line-height: 1.4"><strong style="flex: none; width: 32px; height: 32px; border-radius: 16px; background: #8a4b00; color: #ffffff; font-size: 17px; display: flex; align-items: center; justify-content: center">3</strong><span>นำ<strong>ยาที่กินประจำ</strong>ไปด้วย</span></div>
-    </section>
-
-    <section style="background: #ffffff; border: 1px solid #cfdbea; border-radius: 20px; padding: 12px 16px; display: flex; align-items: center; gap: 14px">
-      <span style="flex: 1; display: flex; flex-direction: column">
-        <span style="font-size: 19px; font-weight: 600; line-height: 1.4">เตือนก่อน 1 วัน</span>
-        <span style="font-size: 16px; color: #3a4b62">ส่งถึงคุณและลูกหลาน</span>
-      </span>
-      <button type="button" role="switch" aria-checked="{{onA}}" aria-label="เตือนก่อน 1 วัน" onClick="{{toggle}}" style="{{track}}"><span style="width: 32px; height: 32px; border-radius: 16px; background: #ffffff; display: block"></span></button>
-    </section>
+    <sc-if value="{{done}}" hint-placeholder-val="{{false}}">
+      <section style="background: #0f6e44; color: #ffffff; border-radius: 22px; padding: 16px; display: flex; gap: 14px; align-items: center">
+        <div role="img" aria-label="QR นัดตรวจ (ตัวอย่าง)" style="flex: none; width: 104px; height: 104px; padding: 6px; box-sizing: border-box; background: #ffffff; border-radius: 12px; display: grid; grid-template-columns: repeat(21, minmax(0, 1fr)); grid-template-rows: repeat(21, minmax(0, 1fr))">
+          <sc-for list="{{cells}}" as="c" hint-placeholder-count="441"><span style="{{c}}"></span></sc-for>
+        </div>
+        <div style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 4px">
+          <span style="align-self: flex-start; font-size: 15px; font-weight: 700; background: #ffffff; color: #0f6e44; padding: 2px 10px; border-radius: 99px">ได้รับ QR แล้ว</span>
+          <strong style="font-family: Anuphan, 'IBM Plex Sans Thai', sans-serif; font-size: 23px; line-height: 1.3">อังคาร 12 ม.ค. 2570</strong>
+          <span style="font-size: 16px">รพ.สต.บ้านหนองบัว · ช่วงเช้า</span>
+        </div>
+      </section>
+      <section style="background: #fbefd9; border-radius: 20px; padding: 14px 16px; display: flex; flex-direction: column; gap: 10px">
+        <strong style="font-size: 20px; color: #5c3300">ก่อนไปตรวจ</strong>
+        <div style="display: flex; gap: 12px; align-items: center; font-size: 19px; line-height: 1.4"><strong style="flex: none; width: 32px; height: 32px; border-radius: 16px; background: #8a4b00; color: #ffffff; font-size: 17px; display: flex; align-items: center; justify-content: center">1</strong><span><strong>งดอาหารหลัง 4 ทุ่ม</strong> ดื่มน้ำเปล่าได้</span></div>
+        <div style="display: flex; gap: 12px; align-items: center; font-size: 19px; line-height: 1.4"><strong style="flex: none; width: 32px; height: 32px; border-radius: 16px; background: #8a4b00; color: #ffffff; font-size: 17px; display: flex; align-items: center; justify-content: center">2</strong><span>นำ<strong>บัตรประชาชน</strong>ไปด้วย</span></div>
+        <div style="display: flex; gap: 12px; align-items: center; font-size: 19px; line-height: 1.4"><strong style="flex: none; width: 32px; height: 32px; border-radius: 16px; background: #8a4b00; color: #ffffff; font-size: 17px; display: flex; align-items: center; justify-content: center">3</strong><span>นำ<strong>ยาที่กินประจำ</strong>ไปด้วย</span></div>
+      </section>
+      <section style="background: #ffffff; border: 1px solid #cfdbea; border-radius: 20px; padding: 12px 16px; display: flex; align-items: center; gap: 14px">
+        <span style="flex: 1; display: flex; flex-direction: column">
+          <span style="font-size: 19px; font-weight: 600; line-height: 1.4">เตือนก่อน 1 วัน</span>
+          <span style="font-size: 16px; color: #3a4b62">ส่งถึงคุณและลูกหลาน</span>
+        </span>
+        <button type="button" role="switch" aria-checked="{{onA}}" aria-label="เตือนก่อน 1 วัน" onClick="{{toggle}}" style="{{track}}"><span style="width: 32px; height: 32px; border-radius: 16px; background: #ffffff; display: block"></span></button>
+      </section>
+    </sc-if>
   </main>
 
-  <footer style="flex: none; padding: 12px 16px 30px; background: #ffffff; border-top: 1px solid #cfdbea; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr); gap: 10px">
-    <button type="button" style="height: 64px; border-radius: 18px; border: 2px solid #b4c6dd; background: #ffffff; color: #0f2038; font: inherit; font-size: 19px; font-weight: 600; cursor: pointer">เลื่อนนัด</button>
-    <a href="Checkin.dc.html" style="height: 64px; border-radius: 18px; background: #1a56c4; color: #ffffff; font-size: 20px; font-weight: 700; display: flex; align-items: center; justify-content: center; text-decoration: none">ดู QR วันตรวจ</a>
+  <footer style="flex: none; padding: 12px 16px 30px; background: #ffffff; border-top: 1px solid #cfdbea">
+    <sc-if value="{{pending}}" hint-placeholder-val="{{true}}">
+      <a href="Main.dc.html" style="height: 64px; border-radius: 18px; border: 2px solid #b4c6dd; color: #0f2038; font-size: 20px; font-weight: 600; display: flex; align-items: center; justify-content: center; text-decoration: none; box-sizing: border-box">กลับหน้าแรก รอแจ้งเตือน</a>
+    </sc-if>
+    <sc-if value="{{done}}" hint-placeholder-val="{{false}}">
+      <a href="Checkin.dc.html" style="height: 64px; border-radius: 18px; background: #1a56c4; color: #ffffff; font-size: 21px; font-weight: 700; display: flex; align-items: center; justify-content: center; text-decoration: none">เปิด QR วันตรวจ</a>
+    </sc-if>
   </footer>
   <div aria-hidden="true" style="position: absolute; bottom: 8px; left: 131px; width: 140px; height: 5px; border-radius: 3px; background: #0f2038"></div>
 </div>
@@ -86,10 +110,27 @@ a{color:#1a56c4}a:hover{color:#123f96}
 </div></div>
 <script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":426,"height":898}}'>
 class Component extends DCLogic {
-  constructor(props) { super(props); this.state = { on: true }; }
+  constructor(props) { super(props); this.state = { done: false, on: true }; }
   renderVals() {
+    const N = 21, cells = [];
+    const finder = (r, c) => {
+      for (const [r0, c0] of [[0, 0], [0, 14], [14, 0]]) {
+        const y = r - r0, x = c - c0;
+        if (y >= 0 && y < 7 && x >= 0 && x < 7) return (y === 0 || y === 6 || x === 0 || x === 6 || (y >= 2 && y <= 4 && x >= 2 && x <= 4)) ? 1 : 0;
+        if (y >= -1 && y <= 7 && x >= -1 && x <= 7) return 0;
+      }
+      return null;
+    };
+    let seed = 7;
+    for (let r = 0; r < N; r++) for (let c = 0; c < N; c++) {
+      let v = finder(r, c);
+      if (v === null) { seed = (seed * 9301 + 49297) % 233280; v = seed / 233280 > 0.52 ? 1 : 0; }
+      cells.push('display: block; background: ' + (v ? '#0f2038' : '#ffffff'));
+    }
     const on = this.state.on;
     return {
+      pending: !this.state.done, done: this.state.done, cells,
+      confirm: () => this.setState({ done: true }),
       onA: on ? 'true' : 'false',
       toggle: () => this.setState({ on: !on }),
       track: 'flex: none; width: 68px; height: 40px; border-radius: 20px; border: 0; padding: 4px; cursor: pointer; display: flex; ' + (on ? 'background: #0f6e44; justify-content: flex-end' : 'background: #8a9bb0; justify-content: flex-start')

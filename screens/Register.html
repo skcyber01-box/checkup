@@ -48,39 +48,34 @@ a{color:#1a56c4}a:hover{color:#123f96}
       </button>
     </div>
     <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 8px">
-      <strong style="font-family: Anuphan, 'IBM Plex Sans Thai', sans-serif; font-size: 25px; line-height: 1.3">ลงทะเบียนตรวจสุขภาพ</strong>
+      <strong style="font-family: Anuphan, 'IBM Plex Sans Thai', sans-serif; font-size: 25px; line-height: 1.3">ลงทะเบียน</strong>
       <span style="flex: none; font-size: 16px; font-weight: 700; color: #0f6e44">ขั้น 1/3</span>
     </div>
   </header>
 
   <main style="flex: 1; overflow-y: auto; padding: 14px 16px 16px; display: flex; flex-direction: column; gap: 12px">
-    <section style="background: #e0f3e9; border-radius: 18px; padding: 12px 16px; display: flex; gap: 12px; align-items: center">
-      <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#0f6e44" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"></path><path d="M9 12l2 2 4-4"></path></svg>
-      <div style="display: flex; flex-direction: column; min-width: 0">
-        <strong style="font-size: 20px">นายสมชาย ใจดี · 61 ปี</strong>
-        <span style="font-size: 17px; color: #0b4d30">สิทธิบัตรทอง ไม่เสียเงิน</span>
+    <p style="margin: 0; font-size: 18px; line-height: 1.5; color: #26384f">กรอก 4 อย่าง ใช้เวลาไม่ถึง 1 นาที</p>
+
+    <section style="background: #ffffff; border: 1px solid #cfdbea; border-radius: 20px; padding: 16px; display: flex; flex-direction: column; gap: 14px">
+      <div style="display: flex; flex-direction: column; gap: 6px">
+        <label for="cid" style="font-size: 17px; font-weight: 600; color: #26384f">เลขบัตรประชาชน 13 หลัก</label>
+        <div style="display: flex; gap: 8px">
+          <input id="cid" type="text" inputmode="numeric" autocomplete="off" value="3 1005 01234 56 7" style="width: 100%; box-sizing: border-box; height: 60px; border: 2px solid #b4c6dd; border-radius: 14px; padding: 0 12px; font: inherit; font-size: 22px; font-weight: 600; color: #0f2038; background: #ffffff; font-variant-numeric: tabular-nums; flex: 1; min-width: 0; letter-spacing: .02em">
+          <button type="button" aria-label="สแกนบัตรประชาชน" style="flex: none; width: 60px; height: 60px; border-radius: 14px; border: 2px solid #1a56c4; background: #e3edfc; display: flex; align-items: center; justify-content: center; cursor: pointer; padding: 0">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1a56c4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8V6a2 2 0 0 1 2-2h2M16 4h2a2 2 0 0 1 2 2v2M20 16v2a2 2 0 0 1-2 2h-2M8 20H6a2 2 0 0 1-2-2v-2"></path><rect x="7" y="8" width="10" height="8" rx="1.5"></rect></svg>
+          </button>
+        </div>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px">
+        <div style="display: flex; flex-direction: column; gap: 6px"><label for="age" style="font-size: 17px; font-weight: 600; color: #26384f">อายุ (ปี)</label><input id="age" type="text" inputmode="numeric" value="61" style="width: 100%; box-sizing: border-box; height: 60px; border: 2px solid #b4c6dd; border-radius: 14px; padding: 0 12px; font: inherit; font-size: 22px; font-weight: 600; color: #0f2038; background: #ffffff; font-variant-numeric: tabular-nums; text-align: center"></div>
+        <div style="display: flex; flex-direction: column; gap: 6px"><label for="ht" style="font-size: 17px; font-weight: 600; color: #26384f">ส่วนสูง (ซม.)</label><input id="ht" type="text" inputmode="numeric" value="165" style="width: 100%; box-sizing: border-box; height: 60px; border: 2px solid #b4c6dd; border-radius: 14px; padding: 0 12px; font: inherit; font-size: 22px; font-weight: 600; color: #0f2038; background: #ffffff; font-variant-numeric: tabular-nums; text-align: center"></div>
+        <div style="display: flex; flex-direction: column; gap: 6px"><label for="wt" style="font-size: 17px; font-weight: 600; color: #26384f">น้ำหนัก (กก.)</label><input id="wt" type="text" inputmode="numeric" value="68" style="width: 100%; box-sizing: border-box; height: 60px; border: 2px solid #b4c6dd; border-radius: 14px; padding: 0 12px; font: inherit; font-size: 22px; font-weight: 600; color: #0f2038; background: #ffffff; font-variant-numeric: tabular-nums; text-align: center"></div>
       </div>
     </section>
 
-    <section style="background: #ffffff; border: 1px solid #cfdbea; border-radius: 18px; padding: 14px 16px; display: flex; flex-direction: column; gap: 10px">
-      <strong style="font-size: 20px">ได้ตรวจ 6 รายการ</strong>
-      <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 10px">
-        <sc-for list="{{items}}" as="it" hint-placeholder-count="6">
-          <div style="display: flex; gap: 6px; align-items: center">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0f6e44" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><path d="M5 12l5 5 9-10"></path></svg>
-            <span style="font-size: 18px; line-height: 1.35">{{it}}</span>
-          </div>
-        </sc-for>
-      </div>
-      <span style="font-size: 17px; color: #8a4b00; font-weight: 600; background: #fbefd9; border-radius: 10px; padding: 6px 10px">น้ำตาลและไขมัน ต้องงดอาหารก่อนตรวจ</span>
-    </section>
-
-    <section style="background: #ffffff; border: 1px solid #cfdbea; border-radius: 18px; padding: 14px 16px; display: flex; flex-direction: column; gap: 10px">
-      <span style="font-size: 19px; font-weight: 600; line-height: 1.45">ตอนนี้มีอาการไม่สบาย ที่อยากให้หมอดูไหม</span>
-      <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px">
-        <button type="button" onClick="{{yes}}" aria-pressed="{{yesP}}" style="{{yesStyle}}">มี</button>
-        <button type="button" onClick="{{no}}" aria-pressed="{{noP}}" style="{{noStyle}}">ไม่มี</button>
-      </div>
+    <section style="background: #e0f3e9; border-radius: 20px; padding: 14px 16px; display: flex; flex-direction: column; gap: 6px">
+      <strong style="font-size: 19px; color: #0b4d30">สิทธิของคุณ: ตรวจสุขภาพผู้สูงอายุ 6 รายการ</strong>
+      <span style="font-size: 17px; line-height: 1.5; color: #0b4d30">ความดัน · น้ำตาล · ไขมัน · ไต · ตาและหู · ความจำและการหกล้ม · ไม่เสียเงิน</span>
     </section>
 
     <label for="pdpa" style="display: flex; gap: 12px; align-items: center; background: #ffffff; border: 1px solid #cfdbea; border-radius: 18px; padding: 12px 16px; font-size: 18px; line-height: 1.45; cursor: pointer">
@@ -90,7 +85,7 @@ a{color:#1a56c4}a:hover{color:#123f96}
   </main>
 
   <footer style="flex: none; padding: 12px 16px 30px; background: #ffffff; border-top: 1px solid #cfdbea">
-    <a href="Hospital.dc.html" style="height: 64px; border-radius: 18px; background: #0f6e44; color: #ffffff; font-size: 21px; font-weight: 700; display: flex; align-items: center; justify-content: center; text-decoration: none">ถัดไป: เลือกที่ตรวจ</a>
+    <a href="Hospital.dc.html" style="height: 64px; border-radius: 18px; background: #0f6e44; color: #ffffff; font-size: 21px; font-weight: 700; display: flex; align-items: center; justify-content: center; text-decoration: none">ถัดไป: เลือกวันตรวจ</a>
   </footer>
   <div aria-hidden="true" style="position: absolute; bottom: 8px; left: 131px; width: 140px; height: 5px; border-radius: 3px; background: #0f2038"></div>
 </div>
@@ -99,17 +94,7 @@ a{color:#1a56c4}a:hover{color:#123f96}
 </div></div>
 <script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":426,"height":898}}'>
 class Component extends DCLogic {
-  constructor(props) { super(props); this.state = { sick: false }; }
-  renderVals() {
-    const on = 'height: 56px; border-radius: 16px; border: 3px solid #1a56c4; background: #1a56c4; color: #ffffff; font: inherit; font-size: 20px; font-weight: 700; cursor: pointer';
-    const off = 'height: 56px; border-radius: 16px; border: 2px solid #b4c6dd; background: #ffffff; color: #0f2038; font: inherit; font-size: 20px; font-weight: 600; cursor: pointer';
-    const y = this.state.sick;
-    return {
-      items: ['ความดัน น้ำหนัก', 'น้ำตาลในเลือด', 'ไขมันในเลือด', 'การทำงานของไต', 'สายตา การได้ยิน', 'ความจำ การหกล้ม'],
-      yes: () => this.setState({ sick: true }), no: () => this.setState({ sick: false }),
-      yesStyle: y ? on : off, noStyle: y ? off : on, yesP: y ? 'true' : 'false', noP: y ? 'false' : 'true'
-    };
-  }
+  renderVals() { return {}; }
 }
 </script>
 </body>
