@@ -86,6 +86,8 @@
     render();
     layout();
     window.addEventListener('resize', layout);
+    window.addEventListener('orientationchange', function () { setTimeout(layout, 300); });
+    if (window.visualViewport) window.visualViewport.addEventListener('resize', layout);
   }
 
   function layout() {
@@ -96,7 +98,13 @@
     b.classList.toggle('thumb', thumb);
     var stage = document.querySelector('.stage');
     if (!stage) return;
-    if (bare) { stage.style.transform = ''; stage.style.height = ''; return; }
+    if (bare) {
+      stage.style.transform = ''; stage.style.height = '';
+      // ใช้ความสูงที่มองเห็นจริง (กันแถบเบราว์เซอร์/แถบนำทาง Android บังปุ่มด้านล่าง)
+      var vv = window.visualViewport;
+      document.documentElement.style.setProperty('--app-h', Math.round(vv ? vv.height : window.innerHeight) + 'px');
+      return;
+    }
     var vw = window.innerWidth, vh = window.innerHeight;
     var navH = thumb ? 0 : (vw < 480 ? 64 : 76);
     var fitW = (vw - (vw < 480 ? 16 : 32)) / 426;

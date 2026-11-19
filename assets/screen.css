@@ -37,7 +37,7 @@ body.thumb .fit { margin: 0; }
 body.bare { padding: 0; display: block; background: #f4f7fb; overflow: hidden; }
 body.bare .stepnav { display: none; }
 body.bare .fit, body.bare .stage { position: static; width: auto !important; height: auto !important; transform: none !important; }
-body.bare x-dc > div { width: 100% !important; height: 100vh !important; height: 100dvh !important; padding: 0 !important; border-radius: 0 !important; background: transparent !important; box-shadow: none !important; }
+body.bare x-dc > div { position: fixed !important; top: 0; right: 0; bottom: 0; left: 0; width: auto !important; height: auto !important; height: var(--app-h, auto) !important; padding: 0 !important; border-radius: 0 !important; background: transparent !important; box-shadow: none !important; }
 body.bare x-dc > div > div { width: 100% !important; height: 100% !important; border-radius: 0 !important; margin: 0 auto; }
 body.bare x-dc > div > div > [aria-hidden="true"]:nth-child(1),
 body.bare x-dc > div > div > [aria-hidden="true"]:nth-child(2),
