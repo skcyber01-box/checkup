@@ -1,0 +1,22 @@
+# ตรวจสุขภาพปีใหม่ 2570 · Dr.Assist (ต้นแบบ)
+
+หน้าจอมือถือ 7 ช่วงประสบการณ์ ออกแบบสำหรับผู้สูงอายุ เว็บแบบ static ไม่ต้อง build
+
+## โครงสร้าง
+- `index.html` หน้าภาพรวม 7 หน้าจอ
+- `screens/*.html` หน้าจอแต่ละขั้น (Main → Register → Hospital → Confirm → Checkin → Results → Followup)
+- `assets/dc-lite.js` ตัวแสดงผลหน้าจอและปุ่มที่กดได้
+- `assets/screen.css` กรอบ iPhone บนคอมพิวเตอร์ / เต็มจอบนมือถือ
+
+## การแสดงผล
+- จอกว้างตั้งแต่ 560px: แสดงในกรอบ iPhone 17 พร้อมแถบเลือกขั้น 1–7 ด้านล่าง
+- มือถือ: แสดงเต็มจอเหมือนแอปจริง
+- บังคับมุมมองได้ด้วย `?view=frame` หรือ `?view=app`
+
+## Deploy บน Vercel
+1. อัปโหลดทั้งโฟลเดอร์ขึ้น GitHub repository ใหม่
+2. ที่ vercel.com เลือก Add New → Project → Import repository นั้น
+3. Framework Preset เลือก **Other** ไม่ต้องตั้ง Build Command และ Output Directory
+4. กด Deploy
+
+ข้อมูลผู้ป่วย ค่าผลตรวจ โรงพยาบาล และ QR เป็นข้อมูลตัวอย่าง ใช้งานจริงไม่ได้
