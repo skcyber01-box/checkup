@@ -13,6 +13,21 @@ body { display: flex; flex-direction: column; align-items: center; justify-conte
 .stepnav .dots a:focus-visible, .stepnav .home:focus-visible { outline: 3px solid #1a56c4; outline-offset: 2px; }
 .stepnav .lbl { font-size: 15px; font-weight: 600; color: #3a4b62; white-space: nowrap; padding-right: 6px; }
 @media (max-width: 720px) { .stepnav .lbl { display: none; } }
+@media (max-width: 480px) {
+  body { padding: 8px 0 72px; }
+  .stepnav { gap: 8px; bottom: max(8px, env(safe-area-inset-bottom, 0px)); padding: 6px; }
+  .stepnav .home { font-size: 14px; padding: 7px 10px; }
+  .stepnav .dots { gap: 4px; }
+  .stepnav .dots a { width: 32px; height: 32px; font-size: 14px; }
+}
+@media (max-width: 400px) {
+  .stepnav { gap: 6px; }
+  .stepnav .home { font-size: 13px; padding: 6px 8px; }
+  .stepnav .dots { gap: 3px; }
+  .stepnav .dots a { width: 30px; height: 30px; font-size: 13px; border-width: 1.5px; }
+}
+@media (max-width: 340px) { .stepnav .home { display: none; } }
+@media (max-height: 520px) { body { justify-content: flex-start; } }
 
 /* ภาพย่อในหน้าภาพรวม */
 body.thumb { padding: 0; display: block; background: transparent; min-height: 0; overflow: hidden; }

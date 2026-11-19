@@ -90,15 +90,22 @@
 
   function layout() {
     var b = document.body;
-    var bare = !thumb && (bareQ === 'app' || (bareQ !== 'frame' && window.innerWidth < 560));
+    // ค่าเริ่มต้น: แสดงในกรอบ iPhone ทุกอุปกรณ์ (?view=app = เต็มจอแบบแอป)
+    var bare = !thumb && bareQ === 'app';
     b.classList.toggle('bare', bare);
     b.classList.toggle('thumb', thumb);
     var stage = document.querySelector('.stage');
     if (!stage) return;
     if (bare) { stage.style.transform = ''; stage.style.height = ''; return; }
-    var navH = thumb ? 0 : 76;
-    var s = Math.min(1, (window.innerWidth - 24) / 426, (window.innerHeight - navH - 24) / 898);
-    if (thumb) s = window.innerWidth / 426;
+    var vw = window.innerWidth, vh = window.innerHeight;
+    var navH = thumb ? 0 : (vw < 480 ? 64 : 76);
+    var fitW = (vw - (vw < 480 ? 16 : 32)) / 426;
+    var fitH = (vh - navH - 24) / 898;
+    // พอดีความกว้างเสมอ และพอดีความสูงเมื่อจอสูงพอ
+    // จอเตี้ย (เช่น มือถือแนวนอน) จะไม่ย่อจนอ่านไม่ออก แต่ให้เลื่อนหน้าลงแทน
+    var s = Math.min(1, fitW);
+    if (fitH >= 0.6) s = Math.min(s, fitH);
+    if (thumb) s = vw / 426;
     stage.style.transform = 'scale(' + s + ')';
     stage.style.width = '426px';
     stage.parentElement.style.height = (898 * s) + 'px';
